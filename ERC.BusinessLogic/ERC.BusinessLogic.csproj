@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{11A428AB-1187-4538-A49B-D24B5FAFDE30}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERC.BusinessLogic</RootNamespace>
+    <AssemblyName>ERC.BusinessLogic</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\Dependencies\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xtra">
+      <HintPath>..\Dependencies\itextsharp.xtra.dll</HintPath>
+    </Reference>
+    <Reference Include="LumenWorks.Framework.IO">
+      <HintPath>..\Dependencies\LumenWorks.Framework.IO.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TinyLog">
+      <HintPath>..\Dependencies\TinyLog.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Export\CommonPlaceholders.cs" />
+    <Compile Include="Export\DocxReportCardParser.cs" />
+    <Compile Include="Export\IReportCardParser.cs" />
+    <Compile Include="Export\PdfReportCardParser.cs" />
+    <Compile Include="Export\ReportCardExporter.cs" />
+    <Compile Include="Import\IImportManager.cs" />
+    <Compile Include="Import\IImportRecord.cs" />
+    <Compile Include="Import\ImportException.cs" />
+    <Compile Include="Import\ImportFieldRequiredAttribute.cs" />
+    <Compile Include="Import\ImportManager.cs" />
+    <Compile Include="Import\ImportResult.cs" />
+    <Compile Include="Import\ISchoolImporter.cs" />
+    <Compile Include="Import\IStudentImporter.cs" />
+    <Compile Include="Import\ITeacherImporter.cs" />
+    <Compile Include="Import\SchoolImporter.cs" />
+    <Compile Include="Import\SchoolImportRecord.cs" />
+    <Compile Include="Import\StudentImporter.cs" />
+    <Compile Include="Import\StudentImporter2.cs" />
+    <Compile Include="Import\StudentImportRecord.cs" />
+    <Compile Include="Import\TeacherImporter.cs" />
+    <Compile Include="Import\TeacherImportRecord.cs" />
+    <Compile Include="PdfCreator.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERC.DataAccess\ERC.DataAccess.csproj">
+      <Project>{E64512C0-F0E3-44BB-8C62-52C8A59FBC28}</Project>
+      <Name>ERC.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERC.DataModel\ERC.DataModel.csproj">
+      <Project>{28F2882B-E9AF-43B8-B97E-08E4BF201F48}</Project>
+      <Name>ERC.DataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
